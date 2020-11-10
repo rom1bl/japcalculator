@@ -46,9 +46,9 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
         <span className={classes.name}>{name}</span>
 
         <div className={classes.controls}>
-          <span className={classes.button} onClick={handleChange(value - 1)}>
+          <div className={classes.button} onClick={handleChange(value - 1)}>
             -
-          </span>
+          </div>
           {/* <span className={classes.value}>{value || 0}</span> */}
           <input
             value={value}
@@ -56,9 +56,9 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
             type="number"
             className={classes.input}
           />
-          <span className={classes.button} onClick={handleChange(value + 1)}>
+          <div className={classes.button} onClick={handleChange(value + 1)}>
             +
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -70,42 +70,50 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
-    width: 200
+    width: 200,
   },
   nameContainer: {
     display: "flex",
     justifyContent: "space-between",
     paddingTop: theme.spacing(1),
-    width: "100%"
+    width: "100%",
   },
   name: {
     color: "black",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   controls: {
     display: "flex",
     alignItems: "center",
     "& > svg": {
-      color: "grey"
-    }
+      color: "grey",
+    },
   },
   button: {
-    color: "grey"
+    color: "grey",
+    border: "1px solid grey",
+    borderRadius: 20,
+    width: "1em",
+    height: "1em",
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
   image: {
-    height: 100
+    height: 100,
   },
   input: {
     border: "none",
     outline: "none",
     mozAppearance: "textfield",
     width: 30,
-    textAlign: "center"
+    textAlign: "center",
   },
   value: {
     marginLeft: theme.spacing(0.5),
-    marginRight: theme.spacing(0.5)
-  }
+    marginRight: theme.spacing(0.5),
+  },
 });
 
 export default withStyles(styles)(FoodTile);
